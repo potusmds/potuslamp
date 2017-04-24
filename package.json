@@ -1,0 +1,35 @@
+{
+  "name": "potuslamp",
+  "version": "1.0.0",
+  "description": "Sitio para la lampara de POTUS",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdsEu/potuslamp.git"
+  },
+  "keywords": [
+    "POTUS"
+  ],
+  "author": "MDS Digital",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdsEu/potuslamp/issues"
+  },
+  "homepage": "https://github.com/mdsEu/potuslamp#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "johnny-five": "^0.10.9",
+    "node-pixel": "^0.9.2",
+    "promise": "^7.1.1",
+    "querystring": "^0.2.0",
+    "request": "^2.81.0",
+    "sleep": "^5.1.1",
+    "socket.io": "^1.7.3"
+  }
+}
