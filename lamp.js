@@ -42,7 +42,7 @@ var app = {
 						});
 			let strip = new pixel.Strip({
 		        data: 11,
-		        length: 60,
+		        length: 29,
 		        color_order: pixel.COLOR_ORDER.GRB,
 		        board: this,
 		        controller: "FIRMATA",
