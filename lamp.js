@@ -30,7 +30,7 @@ var app = {
 				  green: 5,
 				  blue: 3
 				},
-			//	isAnode: true
+			isAnode: true
 			});
 			let eyebrowLeft = new five.Servo({
 							pin: 7,
@@ -281,12 +281,12 @@ var app = {
 					eyebrows(data.eyebrows);
 					face(data.face);
 				},function(e){
-					console.log(e);
+					console.log('last tweet',e);
 				});
 			});
 
 			socket.on('connect_error', function(error){
-				console.log('error: '+error);
+				console.log('error socket: '+error);
 			});
 
 			socket.on('newlamp', function (data) {

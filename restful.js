@@ -4,7 +4,7 @@ const request = require('request');
 
 var restful = {
 	lastTweet : function(){
-		console.log('entro');
+		console.log('entro last tweet');
 		return new Promise(function (fulfill, reject){
 			request({
                 url: process.env.URL_BACKEND + '/lamp',
