@@ -104,7 +104,7 @@ var app = {
 					fadeout = null;
 					intensity = 0;
 				}
-
+				console.log(eyes);
 				led.stop();
 				led.color(eyes.hexa);
 
@@ -138,7 +138,6 @@ var app = {
 			}
 
 			let eyebrows = function(eyebrows){
-				console.log(eyebrows);
 				if(wink != null){
 					clearInterval(wink);
 					wink = null;
@@ -252,7 +251,7 @@ var app = {
 				var j = 0;
 
 		        for(var i = 0; i < face.length * 1000 && j < face.length; i++){
-		        	if(i % 10 == 0){
+		        	if(i % 10 == 0 && face[j].color == undefined){
 		        		strip.pixel(j).color(face[j].color);
 		        		strip.shift(1, pixel.FORWARD, true);
 		        		strip.show();
@@ -276,7 +275,6 @@ var app = {
 			socket.on('connect', function(){
 				restful.lastTweet()
 				.then(function(data){
-					console.log(data);
 					eyes(data.eyes);
 					eyebrows(data.eyebrows);
 					face(data.face);
@@ -290,48 +288,9 @@ var app = {
 			});
 
 			socket.on('newlamp', function (data) {
-				console.log(data);
-				hex = randomHex();
-				eyebrowsObj = {
-					status: {
-						value: 'wink',
-						size: 'left',
-						time: 5000
-					},
-					eyebrow: {
-						left : {
-							angle : 135,
-							maxAngle : 135,
-							minAngle : 90,
-							interval : 1000,
-							step: 10, 
-							timeClose : 1000
-						},
-						right : {
-							angle : 30,
-							maxAngle : 45,
-							minAngle : 90,
-							interval : 1000,
-							step: 10, 
-							timeClose : 1000
-						}
-					},
-					timeClose : 1000
-				}
-
-				eyesObj = {
-					hexa : hex,
-					type : "strober",
-					fadeInFadeOut : {
-						time: 5
-					},
-					strobe: {
-						time: 500
-					}
-				}
-				eyes(eyesObj);
-				eyebrows(eyebrowsObj);
-				face(putStrip([randomHex(), randomHex()]));
+				eyes(data.eyes);
+				eyebrows(data.eyebrows);
+				face(data.face);
 			});
 
 			/*function eyesStop(myEyes){
