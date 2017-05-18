@@ -343,7 +343,7 @@ function putStrip(colors){
 	var strip = [];
 	var different = [8, 9, 10, 48, 49, 50];
 
-	for(var i = 0; i < 60; i++){
+	for(var i = 0; i < 29; i++){
 		if(different.indexOf(i) != -1){
 			var obj = {
 				color : colors[1]
