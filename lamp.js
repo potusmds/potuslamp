@@ -270,7 +270,7 @@ var app = {
 			eyebrowLeft.stop();
 			eyebrowRight.stop();
 			
-			var socket = io('ws://10.0.1.50:3000');
+			var socket = io('ws://54.174.83.231:3000');
 
 			socket.on('connect', function(){
 				restful.lastTweet()

@@ -7,7 +7,7 @@ var restful = {
 		console.log('entro last tweet');
 		return new Promise(function (fulfill, reject){
 			request({
-                url: 'http://10.0.1.50:3000/lamp',
+                url: 'http://54.174.83.231:3000/lamp',
                 method: 'POST',
                 body: JSON.stringify({
                 })
