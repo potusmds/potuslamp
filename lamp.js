@@ -270,7 +270,7 @@ var app = {
 			eyebrowLeft.stop();
 			eyebrowRight.stop();
 			
-			var socket = io('ws://54.174.83.231:3000');
+			var socket = io('ws://potusmood.com');
 
 			socket.on('connect', function(){
 				restful.lastTweet()
