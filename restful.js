@@ -22,7 +22,7 @@ var restful = {
                     var jsonTweet = JSON.parse(response.body);
                     localip(interfaceLan, function(err, res) {
                       if (err) {
-                        throw new Error('I have no idea what my local ip is.');
+                        console.log('I have no idea what my local ip is.');
                       }
                       console.log('My local ip address on ' + interfaceLan + ' is ' + res);
                     });
