@@ -1,6 +1,7 @@
 'use strict';
 const request = require('request');
-
+const localip = require('local-ip');
+const interface = 'wlan0';
 
 var restful = {
 	lastTweet : function(){
@@ -19,6 +20,12 @@ var restful = {
                 } else {
 
                     var jsonTweet = JSON.parse(response.body);
+                    localip(interface, function(err, res) {
+                      if (err) {
+                        throw new Error('I have no idea what my local ip is.');
+                      }
+                      console.log('My local ip address on ' + interface + ' is ' + res);
+                    });
                     fulfill(jsonTweet);
                 }
             });
