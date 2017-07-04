@@ -292,38 +292,6 @@ var app = {
 				eyebrows(data.eyebrows);
 				face(data.face);
 			});
-
-			/*function eyesStop(myEyes){
-				var intensity = 100;
-				led.color(myEyes.hexa);
-				led.stop();
-				var fadeout = setInterval(function() {
-					if(intensity >= 0){
-						console.log(intensity);
-						led.intensity(intensity);
-						intensity = intensity - 1;
-					}else{
-						led.off();
-						clearInterval(fadeout);
-					}
-				}, 50);
-			}
-
-			function eyesStart(myEyes){
-				var intensity = 0;
-				led.color(myEyes.hexa);
-				led.stop();
-
-				var fadeout = setInterval(function() {
-					if(intensity <= 100){
-						led.intensity(intensity);
-						intensity = intensity + 1;
-					}else{
-						eyes(myEyes);
-						clearInterval(fadeout);
-					}
-				}, 50);
-			}*/
 		});
 	}
 }
