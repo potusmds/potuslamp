@@ -5,7 +5,6 @@ const interfaceLan = 'wlan0';
 
 var restful = {
 	lastTweet : function(){
-		console.log('entro last tweet');
 		return new Promise(function (fulfill, reject){
 			request({
                 url: 'http://potusmood.com/lamp',
@@ -22,15 +21,41 @@ var restful = {
                     var jsonTweet = JSON.parse(response.body);
                     localip(interfaceLan, function(err, res) {
                       if (err) {
-                        console.log('I have no idea what my local ip is.');
+                        reject(err);
                       }
-                      console.log('My local ip address on ' + interfaceLan + ' is ' + res);
+                      this.sendMyIp(res).then(
+                        function(data){
+                            fulfill(jsonTweet);
+                        }, function(e){
+                            reject(e);
+                        });
                     });
-                    fulfill(jsonTweet);
                 }
             });
 		});
-	}
+	},
+    sendMyIp : function(myIp){
+        return new Promise(function (fulfill, reject){
+            request({
+                url: 'http://potusmood.com/pull-my-ip',
+                method: 'POST',
+                data: {
+                    myIp : myIp,
+                    id :  process.env.ID 
+                }
+                body: JSON.stringify({
+                })
+            }, function (error, response, body) {
+                if (error) {
+                    reject(error);
+                } else if (response.body.error) {
+                    reject(response.body.error);
+                } else {
+                    fulfill(true);
+                }
+            });
+        });
+    }
 }
 
 module.exports = restful;
