@@ -1,4 +1,5 @@
 'use strict';
+require('dotenv').config({silent: true});
 const request = require('request');
 const localip = require('local-ip');
 const interfaceLan = 'wlan0';
