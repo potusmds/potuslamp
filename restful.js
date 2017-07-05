@@ -39,11 +39,9 @@ var restful = {
             request({
                 url: 'http://potusmood.com/pull-my-ip',
                 method: 'POST',
-                data: {
+                body: JSON.stringify({
                     myIp : myIp,
                     id :  process.env.ID 
-                },
-                body: JSON.stringify({
                 })
             }, function (error, response, body) {
                 if (error) {
