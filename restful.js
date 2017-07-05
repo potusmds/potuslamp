@@ -43,10 +43,10 @@ var restful = {
                 headers: {
                     "content-type": "application/json",
                 },
-                body: JSON.stringify({
+                json: {
                     myIp : myIp,
                     id :  process.env.ID 
-                })
+                }
             }, function (error, response, body) {
                 if (error) {
                     reject(error);
