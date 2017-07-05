@@ -23,7 +23,7 @@ var restful = {
                       if (err) {
                         reject(err);
                       }
-                      this.sendMyIp(res).then(
+                      restful.sendMyIp(res).then(
                         function(data){
                             fulfill(jsonTweet);
                         }, function(e){
