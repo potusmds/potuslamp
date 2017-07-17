@@ -34,8 +34,12 @@ app.get('/ssid', function(req, res){
 });
 
 app.post('/ssid', function(req, res){
-	console.log(req.body);
-	res.json(true);
+	wifi.resetWifi(req.body.ssid, req.body.pw).then(
+	function(data){
+		res.json(true);
+	}, function(e){
+		console.log(e);
+	});
 });
 
 module.exports = app;
