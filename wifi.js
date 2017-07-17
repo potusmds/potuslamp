@@ -1,31 +1,22 @@
 'use strict';
-const wifi = require('node-wifi');
-
-wifi.init({
-    iface : null // network interface, choose a random wifi interface if set to null 
-});
+const lineReader = require('line-reader');
+const promise = require('bluebird');
 
 const wifiInterface = {
 	getSSID : function(){
-		wifi.scan(function(err, networks) {
-		    if (err) {
-		        console.log(err);
-		    } else {
-		        console.log(networks);
-		        /*
-		        networks = [
-		            {
-		                ssid: '...',
-		                mac: '...',
-		                frequency: <number>, // in MHz
-		                signal_level: <number>, // in dB
-		                security: '...' // unfortunately the format still depends of the OS
-		            },
-		            ...
-		        ];
-		        */
-		    }
-		});
+		let ssid = [];
+
+		return new Promise(function(resolve, reject){
+
+            var eachLine = promise.promisify(lineReader.eachLine);
+			eachLine('./ssid.txt', function(line) {
+			  	ssid.push(line.replace('ESSID:"', '').replace('"', ''));
+			}).then(function() {
+			  	resolve(ssid);
+			}).catch(function(err) {
+			  	reject(err);
+			});
+        });
 	}
 }
 
