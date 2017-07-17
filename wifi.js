@@ -8,7 +8,7 @@ const wifiInterface = {
 		let ssid = [];
 
 		return new Promise(function(resolve, reject){
-			cmd.get("/home/pi/trumpmood/readfile.sh", function(err, data, stderr){
+			cmd.get("sudo /home/pi/trumpmood/readfile.sh", function(err, data, stderr){
 				
 				if(err){
 					reject(err);
