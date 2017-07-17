@@ -26,6 +26,13 @@ const wifiInterface = {
 
 			});
         });
+	},
+	resetWifi : function(name, pw){
+		cmd.get("sudo /home/pi/trumpmood/reset.sh \"" + name + "\"" + pw, function(err, data, stderr){
+			if(err){
+				reject(err);
+			}
+		});
 	}
 }
 
