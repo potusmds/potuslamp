@@ -1,7 +1,7 @@
 'use strict';
 const lineReader = require('line-reader');
 const promise = require('bluebird');
-cmd = require('node-cmd');
+const cmd = require('node-cmd');
 
 const wifiInterface = {
 	getSSID : function(){
@@ -23,7 +23,7 @@ const wifiInterface = {
 				}).catch(function(err) {
 				  	reject(err);
 				});
-							
+
 			});
         });
 	}

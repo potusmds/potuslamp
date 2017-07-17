@@ -10,7 +10,7 @@ module.exports = {
       name      : "POTUSLamp",
       script    : "server.js",
       watch: true,
-      "ignore_watch" : [".git", "uploads", 'public', 'views', 'react'],
+      "ignore_watch" : [".git", "uploads", 'public', 'views', 'react', 'ssid.txt'],
       env: {
         COMMON_VARIABLE: "true"
       },
