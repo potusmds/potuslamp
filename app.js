@@ -5,6 +5,7 @@ const express = require('express');
 var lamp = require('./lamp.js');
 const path  = require("path");
 const wifi = require("./wifi.js");
+const cmd = require("./cmd.js");
 const bodyParser = require('body-parser')
 
 
@@ -34,7 +35,8 @@ app.get('/ssid', function(req, res){
 });
 
 app.get('/reset', function(req, res){
-	wifi.getSSID().then(function(data){
+	cmd.reset().
+	then(function(data){
 		res.json(true);
 	},function(e){
 		console.log(e);
