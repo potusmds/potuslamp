@@ -1,5 +1,4 @@
 'use strict';
-const cmd = require('node-cmd');
 
 const cmd = {
 	reset : function(){
