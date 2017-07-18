@@ -33,6 +33,14 @@ app.get('/ssid', function(req, res){
 	});
 });
 
+app.get('/reset', function(req, res){
+	wifi.getSSID().then(function(data){
+		res.json(true);
+	},function(e){
+		console.log(e);
+	});
+});
+
 app.post('/ssid', function(req, res){
 	wifi.resetWifi(req.body.ssid, req.body.pw).then(
 	function(data){

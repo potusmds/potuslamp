@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Container, Row, Col  } from 'reactstrap';
 import axios from 'axios';
+import FaRefresh from 'react-icons/lib/fa/refresh'
 
 class App extends React.Component {
    render() {
@@ -18,6 +19,7 @@ class Header extends React.Component {
 		super(props);
 
 		this.toggle = this.toggle.bind(this);
+		this.reset = this.reset.bind(this);
 		this.state = {
 			isOpen: false
 		};
@@ -26,6 +28,14 @@ class Header extends React.Component {
 	toggle() {
 		this.setState({
 			isOpen: !this.state.isOpen
+		});
+	}
+
+	reset(){
+
+		axios.get('/reset')
+		.then(function(data){
+			console.log(data);
 		});
 	}
 
@@ -38,10 +48,19 @@ class Header extends React.Component {
 				<Collapse isOpen={this.state.isOpen} navbar>
 					<Nav className="ml-auto" navbar>
 						<NavItem>
-							<NavLink href="http://mdsdigital.com">MDS Digital</NavLink>
+							<NavLink href="javascript:void(0);" onClick={this.reset}>
+								Resetear
+							</NavLink>
 						</NavItem>
 						<NavItem>
-							<NavLink href="http://potusmood.com">PotusMood</NavLink>
+							<NavLink href="http://mdsdigital.com">
+								MDS Digital
+							</NavLink>
+						</NavItem>
+						<NavItem>
+							<NavLink href="http://potusmood.com">
+								PotusMood
+							</NavLink>
 						</NavItem>
 					</Nav>
 				</Collapse>
@@ -74,11 +93,13 @@ class FormStyle extends React.Component {
 		this.changeSSID = this.changeSSID.bind(this);
 		this.changePassword = this.changePassword.bind(this);
 		this.sendForm = this.sendForm.bind(this);
+		this.getSSID = this.getSSID.bind(this);
 
 		this.state = {
 			ssids: [],
 			ssid: '',
-			pw: ''
+			pw: '',
+			ssidsLoad: []
 		};
 	}
 
@@ -88,6 +109,7 @@ class FormStyle extends React.Component {
 		.then(res => {
 			const ssids = res.data.map((obj) => obj);
 			this.setState({ ssids: ssids });
+			this.setState({ ssidsLoad : this.state.ssids.map((ssid) => <option value={ssid}>{ssid}</option>) });
 		});
 	}
 	
@@ -96,16 +118,25 @@ class FormStyle extends React.Component {
   	}
 
 	render() {
-		let ssids = this.state.ssids.map((ssid) => <option value={ssid}>{ssid}</option>);
+		
 
 		return (
 			<Form onSubmit={this.sendForm}>
 				<FormGroup>
 					<Label for="SSID">Nombre de la Red</Label>
-		     		<Input type="select" name="SSID" id="SSID" value={this.state.ssid} onChange={this.changeSSID}>
-						<option value=""></option>
-		     			{ssids}
-		     		</Input>
+					<Row>
+						<Col xs="10">
+				     		<Input type="select" name="SSID" id="SSID" value={this.state.ssid} onChange={this.changeSSID}>
+								<option value=""></option>
+				     			{this.state.ssidsLoad}
+				     		</Input>
+				     	</Col>
+				     	<Col xs="2">
+				     		<Button color="secondary" onClick={this.getSSID}>
+				     			<FaRefresh/>
+				     		</Button>
+				     	</Col>
+			     	</Row>
 		     	</FormGroup>
 		     	<FormGroup>
           			<Label for="password">Password</Label>
