@@ -1,6 +1,7 @@
 'use strict';
+const cmd = require('node-cmd');
 
-const cmd = {
+const cmdVal = {
 	reset : function(){
 		return new Promise(function(resolve, reject){
 			cmd.get("sudo /home/pi/trumpmood/resetPotus.sh", function(err, data, stderr){
@@ -16,4 +17,4 @@ const cmd = {
 	}
 }
 
-module.exports = cmd;
+module.exports = cmdVal;
