@@ -7,5 +7,5 @@ else
 	service dhcpcd start
 	service dnsmasq start
 	cp /etc/network/interfaces.hostapd /etc/network/interfaces
-	/usr/sbin/hostapd /etc/hostapd/hostapd.conf &
+	/usr/sbin/hostapd /etc/hostapd/hostapd.conf
 fi
