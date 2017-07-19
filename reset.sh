@@ -11,6 +11,6 @@ sed -i -e "\$a}" /etc/wpa_supplicant/wpa_supplicant.conf
 
 rm /etc/network/interfaces
 cp /etc/network/interfaces.wifi /etc/network/interfaces
-service networking restart
 service dhcpcd stop
 service dnsmasq stop
+reboot now
