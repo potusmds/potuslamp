@@ -6,14 +6,18 @@ import FaRepeat from 'react-icons/lib/fa/repeat';
 import FaDownload from 'react-icons/lib/fa/download';
 
 class App extends React.Component {
-   render() {
-      return (
-         <div>
-            <Header/>
-            <Content/>
-         </div>
-      );
-   }
+	constructor(props) {
+		super(props);
+		console.log(props.id);
+	}
+   	render() {
+      	return (
+         	<div>
+            	<Header id={this.props.id}/>
+            	<Content/>
+         	</div>
+      	);
+   	}
 }
 
 class Header extends React.Component {
@@ -48,38 +52,40 @@ class Header extends React.Component {
 	}
 
    	render() {
-      return (
-		<div>
-			<Navbar color="faded" light toggleable>
-				<NavbarToggler right onClick={this.toggle} />
-				<NavbarBrand href="/">Setup Potus Mood</NavbarBrand>
-				<Collapse isOpen={this.state.isOpen} navbar>
-					<Nav className="ml-auto" navbar>
-						<NavItem>
-							<NavLink href="javascript:void(0);" onClick={this.update} title="Actualizar Lampara">
-								<FaDownload/>
-							</NavLink>
-						</NavItem>
-						<NavItem>
-							<NavLink href="javascript:void(0);" onClick={this.reset} title="Resetear Lampara">
-								<FaRefresh/>
-							</NavLink>
-						</NavItem>
-						<NavItem>
-							<NavLink href="http://mdsdigital.com">
-								MDS Digital
-							</NavLink>
-						</NavItem>
-						<NavItem>
-							<NavLink href="http://potusmood.com">
-								PotusMood
-							</NavLink>
-						</NavItem>
-					</Nav>
-				</Collapse>
-			</Navbar>
-		</div>
-      );
+
+		return (
+			<div>
+				<Navbar color="faded" light toggleable>
+					<NavbarToggler right onClick={this.toggle} />
+					<NavbarBrand href="/">Setup Potus Mood</NavbarBrand>
+					<NavbarBrand href="/">ID: {this.props.id}</NavbarBrand>
+					<Collapse isOpen={this.state.isOpen} navbar>
+						<Nav className="ml-auto" navbar>
+							<NavItem>
+								<NavLink href="javascript:void(0);" onClick={this.update} title="Actualizar Lampara">
+									<FaDownload/>
+								</NavLink>
+							</NavItem>
+							<NavItem>
+								<NavLink href="javascript:void(0);" onClick={this.reset} title="Resetear Lampara">
+									<FaRefresh/>
+								</NavLink>
+							</NavItem>
+							<NavItem>
+								<NavLink href="http://mdsdigital.com">
+									MDS Digital
+								</NavLink>
+							</NavItem>
+							<NavItem>
+								<NavLink href="http://potusmood.com">
+									PotusMood
+								</NavLink>
+							</NavItem>
+						</Nav>
+					</Collapse>
+				</Navbar>
+			</div>
+		);
    }
 }
 
