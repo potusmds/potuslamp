@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Container, Row, Col  } from 'reactstrap';
 import axios from 'axios';
-import FaRefresh from 'react-icons/lib/fa/refresh'
+import FaRefresh from 'react-icons/lib/fa/refresh';
+import FaRepeat from 'react-icons/lib/fa/repeat';
+import FaDownload from 'react-icons/lib/fa/download';
 
 class App extends React.Component {
    render() {
@@ -32,8 +34,14 @@ class Header extends React.Component {
 	}
 
 	reset(){
-
 		axios.get('/reset')
+		.then(function(data){
+			console.log(data);
+		});
+	}
+	
+	update(){
+		axios.get('/update')
 		.then(function(data){
 			console.log(data);
 		});
@@ -48,8 +56,13 @@ class Header extends React.Component {
 				<Collapse isOpen={this.state.isOpen} navbar>
 					<Nav className="ml-auto" navbar>
 						<NavItem>
-							<NavLink href="javascript:void(0);" onClick={this.reset}>
-								Resetear
+							<NavLink href="javascript:void(0);" onClick={this.update} title="Actualizar Lampara">
+								<FaDownload/>
+							</NavLink>
+						</NavItem>
+						<NavItem>
+							<NavLink href="javascript:void(0);" onClick={this.reset} title="Resetear Lampara">
+								<FaRefresh/>
 							</NavLink>
 						</NavItem>
 						<NavItem>
@@ -132,8 +145,8 @@ class FormStyle extends React.Component {
 				     		</Input>
 				     	</Col>
 				     	<Col xs="2">
-				     		<Button color="secondary" onClick={this.getSSID}>
-				     			<FaRefresh/>
+				     		<Button color="secondary" onClick={this.getSSID} title="reload redes">
+				     			<FaRepeat/>
 				     		</Button>
 				     	</Col>
 			     	</Row>
