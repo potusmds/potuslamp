@@ -17,7 +17,7 @@ const cmdVal = {
 	},
 	update : function(){
 		return new Promise(function(resolve, reject){
-			cmd.get("/home/pi/trumpmood/upload.sh", function(err, data, stderr){
+			cmd.get("/home/pi/trumpmood/update.sh", function(err, data, stderr){
 				
 				if(err){
 					reject(err);
