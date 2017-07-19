@@ -3,4 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App.jsx';
 import 'bootstrap/dist/css/bootstrap.css';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+const load = document.getElementById('load');
+
+ReactDOM.render(<App id={load.dataset.id}/>, document.getElementById('app'));

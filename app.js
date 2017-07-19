@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 app.get('/', function(rew, res){
 	//res.end('hola mundo');
 	
-	res.render(path.join(__dirname, 'views/index.html'),{});
+	res.render(path.join(__dirname, 'views/index.html'),{id: process.env.ID});
 });
 
 app.get('/ssid', function(req, res){
