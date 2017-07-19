@@ -93,7 +93,7 @@ class Content extends React.Component {
    render() {
       return (
         <Container>
-            <h1>Formulario</h1>
+            <h1>Setup</h1>
             <Row>
 				<Col xs="3"></Col>
 				<Col xs="6" sm="4">
