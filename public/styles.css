@@ -1,0 +1,28 @@
+body{
+    background: URL(images/white_house.png) no-repeat bottom center #f69b86 !important;
+    color:#ffffff !important;
+    height: 100vh;
+}
+.navbar{
+    background: #f27655;
+}
+.navbar a{
+    color: #ffffff;
+}
+.navbar a:hover{
+    color: #ffffff;
+    cursor: pointer;
+}
+.container{
+    margin-top: 30px;
+}
+.btn {
+    color: #ffffff !important;
+    background-color: #f27655 !important;
+    border-color: #f27655 !important;
+    cursor: pointer !important;
+}
+
+input[type="button"]{
+   cursor: pointer !important;
+}

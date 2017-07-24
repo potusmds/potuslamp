@@ -55,7 +55,7 @@ class Header extends React.Component {
 
 		return (
 			<div>
-				<Navbar color="faded" light toggleable>
+				<Navbar toggleable>
 					<NavbarToggler right onClick={this.toggle} />
 					<NavbarBrand href="/">Setup Potus Mood</NavbarBrand>
 					<NavbarBrand href="/">ID: {this.props.id}</NavbarBrand>
@@ -142,7 +142,7 @@ class FormStyle extends React.Component {
 		return (
 			<Form onSubmit={this.sendForm}>
 				<FormGroup>
-					<Label for="SSID">Nombre de la Red</Label>
+					<Label for="SSID">Wireless Name</Label>
 					<Row>
 						<Col xs="10">
 				     		<Input type="select" name="SSID" id="SSID" value={this.state.ssid} onChange={this.changeSSID}>
@@ -161,7 +161,7 @@ class FormStyle extends React.Component {
           			<Label for="password">Password</Label>
 		     		<Input type="password" name="password" id="password" placeholder="password" onChange={this.changePassword} value={this.state.pw} />
         		</FormGroup>
-        		<Button type="submit">Actualizar y resetear</Button>
+        		<Button type="submit">Update and Reset</Button>
 			</Form>
 		);
 	}
