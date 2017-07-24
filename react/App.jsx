@@ -98,7 +98,7 @@ class Content extends React.Component {
             <h1>Setup</h1>
             <Row>
 				<Col xs="3"></Col>
-				<Col xs="7" sm="5">
+				<Col xs="8" sm="5">
 					<FormStyle/>
 				</Col>
 				<Col xs="3"></Col>
