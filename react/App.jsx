@@ -62,22 +62,24 @@ class Header extends React.Component {
 					<Collapse isOpen={this.state.isOpen} navbar>
 						<Nav className="ml-auto" navbar>
 							<NavItem>
-								<NavLink href="javascript:void(0);" onClick={this.update} title="Actualizar Lampara">
+								<NavLink href="javascript:void(0);" onClick={this.update} title="Actualizar Lampara" className="link_download">
+                                    <div className="toolTip">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </div>
 									<FaDownload/>
 								</NavLink>
 							</NavItem>
 							<NavItem>
-								<NavLink href="javascript:void(0);" onClick={this.reset} title="Resetear Lampara">
+								<NavLink href="javascript:void(0);" onClick={this.reset} title="Resetear Lampara" className="link_reset">
+                                    <div className="toolTip">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </div>
 									<FaRefresh/>
 								</NavLink>
 							</NavItem>
 							<NavItem>
-								<NavLink href="http://mdsdigital.com">
-									MDS Digital
+								<NavLink href="http://mdsdigital.com" target="_blank">
+                                    <img src="images/mds.png" align="middle"/>
 								</NavLink>
 							</NavItem>
 							<NavItem>
-								<NavLink href="http://potusmood.com">
+								<NavLink href="http://potusmood.com" className="title_page">
 									PotusMood
 								</NavLink>
 							</NavItem>
@@ -96,7 +98,7 @@ class Content extends React.Component {
             <h1>Setup</h1>
             <Row>
 				<Col xs="3"></Col>
-				<Col xs="6" sm="4">
+				<Col xs="7" sm="5">
 					<FormStyle/>
 				</Col>
 				<Col xs="3"></Col>

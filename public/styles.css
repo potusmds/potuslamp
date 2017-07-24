@@ -23,6 +23,38 @@ body{
     cursor: pointer !important;
 }
 
-input[type="button"]{
-   cursor: pointer !important;
+.btn-secondary:hover {
+    cursor: pointer !important;
 }
+.toolTip{
+    display: none;
+    position: absolute;
+    background: #f27655;
+    padding: 15px;
+    top:70px;
+    left: -95px;
+    width: 220px;
+    border-radius: 15px;
+    font-size: 13px;
+}
+.link_reset,.link_download{
+    position: relative;
+    padding-top: 1em !important;
+}
+a:hover .toolTip{
+    display: block;
+}
+.toolTip:before {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #f27655 transparent;
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 100px;
+}
+.title_page{
+    padding-top: 1em !important;
